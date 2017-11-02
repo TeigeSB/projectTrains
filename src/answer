@@ -1,0 +1,134 @@
+1.  Define the function of a constructor. [2]
+
+    The function of a constructor consists of the inputs that will place values for the properties of the class. Inside the constructor the
+    class properties will be set to the inputs.
+
+2. Outline the advantages of polymorphism, using the RollingStock class as an example. [3]
+
+    Polymorphism has advantages that allow you to make changes to variables/properties inside a class without having to go and change what is
+    extended by that class. In RollingStock, we have the subclasses of Engine and Wagon. Both of the subclasses are able to use the getWeight
+    function, as well as the getID function. Even if we altered variable names inside the RollingStock super class, there would be nothing we
+    have to change inside the subclasses.
+
+3. Construct a unified modelling language (UML) diagram of the Train class. [3]
+
+    https://docs.google.com/a/berkeley.net/document/d/1Au-znnuo0I_WdGz-pOqoFhf7kKvrCqXFqxoCRIpWcs4/edit?usp=sharing
+
+4. Construct a method getNumberOfWagons(), part of the Train class, that returns the
+number of wagons currently coupled to the train. [2]
+
+5. Construct the removeWagon() method that will remove one wagon from a train and
+return the removed object. Include appropriate error checking. [5]
+
+6. Outline one advantage of using standard library collections. [2]
+
+    Standard library collections don't have to be initiated when we make them, they grow and shrink in size automatically
+
+7. Describe two ways in which programming by a team differs from programming by an
+individual working alone. [4]
+
+    When working alone, you don't have to worry about consulting with the other members when you change something, you won't have to make
+    sure that changing this variable will mess up that variable that you don't know about. This is mainly why when working in a team
+    you use private access variables. When working as a team, you have people that you can ask questions too, people who can help you; however,
+    the more people you have the harder it is to communicate what you want to do.
+
+8.  State the appropriate data type to be used in the Address class to store
+(i) the street name; [1]
+    String
+(ii) the building number; [1]
+    int
+(iii) an indication of whether or not this is a business address. [1]
+    boolean
+
+9. Identify the changes to the Parcel class that will be needed to make use of the new
+Address class. [3]
+    Remove originAddress and destinationAddress
+
+10. Outline how these two new classes (originAddress and destinationAddress) can be created with minimal duplication of code. [3]
+
+    The two classes could be made as subclasses of the Parcel class, using functions from that.
+
+11. Consider the following code fragment.
+
+Train A = new Train(123);
+Engine B = new Engine(7);
+A.addEngine(B);
+Wagon C = new Wagon(23);
+A.addWagon(C);
+Wagon D = new Wagon(66);
+A.addWagon(D);
+Wagon E = new Wagon(71);
+A.addWagon(E);
+A.addEngine(new Engine(9));
+
+(i) Draw the mEngines array after the code fragment has been executed. [2]
+
+    Engine[] mEngine = [B, Engine(9)]
+
+(ii) State the value of mEngineCount after the code fragment has been executed. [1]
+
+    int mEngineCount = 2
+
+(iii) Draw the mWagons array after both the code fragment above and the code fragment
+below have been executed. [2]
+
+    Wagon[] mWagon = [C, D, E, Wagon(214)]
+
+Wagon F = A.removeWagon();
+F = A.removeWagon();
+A.addWagon(new Wagon(214));
+
+The parcels loaded into a wagon cannot weigh more than the capacity of the wagon. A train’s
+engines must have enough combined power to pull the loaded wagons. The company needs to
+be able to check that these requirements are being met.
+
+12. Construct the getWeight() method in the Wagon class that returns the total combined
+weight of the parcels currently in the wagon and the wagon itself. [4]
+
+13. Construct the getWeight() method in the Train class that returns the total combined
+weight of all the parcels, engines and wagons in a train. [4]
+
+14. Explain why having a getWeight() method in both the Train and Wagon classes
+does not cause a compiler error, even though the Train class does not inherit from the
+RollingStock class. [2]
+
+    Since they are both different classes, you can just do [Class instance].getWeight() to get the weight, and that won't cause an error
+    since it's calling it from the specific class
+
+The static array used to store Wagon objects in the Train class is to be replaced by a linked list
+of Wagon objects.
+
+15. Without writing detailed code, identify the changes that will need to be made. [3]
+
+    We would have to make a new class dedicated to the linked list, and then change some of the properties of the train class. We would
+    delete the mWagons array, and replace it with an instance of linked list. There would have to be a function made in the class to add
+    wagons as well. Iterating through it would be the same.
+
+16. Without the use of library functions, construct the addWagon() method in the Train
+class to add a Wagon object at the beginning of the linked list. [3]
+
+17. Describe how a method to remove a particular wagon would be implemented. [5]
+
+    You would have to iterate through the list to find the the wagon. Iterating through it you would see if it contains the wagon, then use
+    the position of the wagon to remove it from the list.
+
+The wagons have a single door so the first parcel loaded into a wagon is the last one to
+be unloaded.
+
+18. Identify a dynamic abstract data structure that would be appropriate to model the storage
+of parcels in a wagon. [1]
+
+    Linked lists would be the most friendly, since you can check the first and last instance inside it.
+
+19. The Wagon class has been modified to include an object named model which is an instance
+of the abstract data structure identified in (d). Construct code for the following methods
+in the Wagon class using this new object.
+(i) addParcel() [2]
+(ii) getParcel() [2]
+(f) Explain the importance of style and naming conventions in code. [4]
+
+    Style in code is usually unique to certain people, they ar little things that each coder does to make the code satisfactory to them. It
+    can also be the how the language you want to use works, what needs to be done to make the code working. Naming, on the other hand,
+    is extremely vital when making efficient, working code. It can reduce the effort needed to read code, find errors more easily,
+    and help focus the scope of what you need to do.
+
